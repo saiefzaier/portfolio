@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" #form >
+  <div class="form-group">
+    <label for="exampleInputEmail1">Skill</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+           placeholder="Skill name" name="skill" required [(ngModel)]="sk.skill">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Skill Description</label>
+    <textarea type="textarea" class="form-control" aria-describedby="emailHelp" placeholder="Skill Description"
+              name="skilldesc" required=""
+              [(ngModel)]="sk.skilldesc"></textarea>
+  </div>
+  <button type="submit" class="btn btn-light">Submit</button>
+  <br><br>
+</form>

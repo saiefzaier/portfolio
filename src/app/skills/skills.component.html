@@ -1,0 +1,54 @@
+<div class="container-fluid" xmlns:innerHTML="http://www.w3.org/1999/xhtml"
+     xmlns:FormControlDirective="http://www.w3.org/1999/xhtml">
+  <div class="text-center ">
+    <button class="btn btn-outline-secondary " *ngIf="loggedIn"  (click)="enableAdd()" routerLink="addskill">Add Skill</button>
+    <br><br>
+    <div *ngIf="adding">
+    <router-outlet ></router-outlet>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm" *ngFor="let skill of skills;">
+      <p>
+        <a class="btn btn-outline-secondary btn-lg " data-toggle="collapse" href="#{{skill.skill}}" role="button"
+           aria-expanded="false"
+           aria-controls="collapseExample">
+          {{skill.skill}}
+          <hr>
+          <a class="btn-light btn-sm" (click)="editItem($event,skill)"  *ngIf="loggedIn"> Edit</a>
+          <a class="btn-light btn-sm" (click)="deleteSkill($event,skill)" *ngIf="loggedIn"> Delete</a>
+        </a>
+      </p>
+      <div class="collapse" id="{{skill.skill}}">
+        <div class="card card-body">
+          <ul class="">
+            <li *ngFor="let dec of skill.skilldesc.split(regex)">
+              {{dec}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <form *ngIf="editState && skillToEdit==skill" (ngSubmit)="updateSkill(skill)">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Skill</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 placeholder="Skill name" name="skill" required [(ngModel)]="skill.skill">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Skill Description</label>
+          <textarea type="textarea" class="form-control" aria-describedby="emailHelp" placeholder="Skill Description"
+                    name="skilldesc" required=""
+                    [(ngModel)]="skill.skilldesc"></textarea>
+        </div>
+        <button type="submit" class="btn btn-light" [disabled]="">Submit</button>
+      </form>
+
+
+    </div>
+
+  </div>
+
+</div>

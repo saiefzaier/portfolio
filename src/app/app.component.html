@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light  sticky-top shadow p-3 mb-5 rounded bg-light"
+     style="max-height: 50px;" >
+  <a class="navbar-brand">Saief Eddine EZaier</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav w-75 justify-content-center">
+      <li class="nav-item mr-3 style" style="font-size: 18px">
+        <a class="nav-link  " [routerLink]="'about'"  [routerLinkActive]="'active'"> ABOUT<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item mr-3   ">
+        <a class="nav-link" style="font-size: 18px" [routerLink]="'projects'"
+           [routerLinkActive]="'active'">PROJECTS<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item mr-3  ">
+        <a class="nav-link" style="font-size: 18px" [routerLink]="'skills'" [routerLinkActive]="'active'">SKILLS<span
+          class="sr-only"></span></a>
+      </li>
+
+      <li class="nav-item  ">
+        <a class="nav-link" style="font-size: 18px" *ngIf="!Loggedin" [routerLink]="'auth'"
+           [routerLinkActive]="'active'">LOGIN<span class="sr-only"></span></a>
+      </li>
+    </ul>
+
+    <form class="form-inline">
+
+    </form>
+  </div>
+</nav>
+<div class="container-fluid">
+
+  <router-outlet></router-outlet>
+
+
+</div>

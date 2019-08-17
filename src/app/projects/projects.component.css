@@ -1,0 +1,25 @@
+.card {
+
+margin: auto;
+   /* Animation */
+  overflow: hidden;
+  transition: transform .2s ;
+}
+.card:hover{
+  transform: scale(1.1);
+}
+.icon{
+  background-color: transparent;
+  margin-left: 10px;
+  margin-right: 20px;
+  height: 40px;
+  width: 40px;
+}
+.icon:hover{
+  transform: scale(1.2);
+
+}
+
+.img {
+  height: 300px;
+}

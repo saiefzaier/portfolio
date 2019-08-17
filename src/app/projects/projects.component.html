@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="text-center">
+    <button class="btn btn-outline-secondary " *ngIf="loggedIn"  (click)="enableadd()"  routerLink="addproject">Add Project</button>
+  </div>
+<div *ngIf="adding">
+  <router-outlet></router-outlet>
+</div>
+  <div class="row">
+    <div class="col-sm" style="margin-top: 3%; margin-left: 3%" *ngFor="let project of projects ">
+      <div class="card " style="width: 20rem; height: auto">
+        <img [src]="project.imageurl" class="img" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{project.title}}</h5>
+          <p class="card-text">{{project.description}}.</p>
+          <a href="{{project.github}}" target="_blank">  <img class="icon" src="../../assets/git.png" class="icon"> </a>
+          <a href="{{project.youtube}}" target="_blank">  <img class="icon"src="../../assets/youtube.png" class="icon"> </a>
+          <a *ngIf="project.www!=='' && project.www"  href="{{project.www}}" target="_blank">  <img class="icon"src="../../assets/www.png" class="icon"> </a>
+          <a class="btn-light btn-sm mr-2" *ngIf="loggedIn"  (click)="editProject($event,project)" >Edit</a>
+          <a class=" btn-light btn-sm " *ngIf="loggedIn"  (click)="deleteProject($event,project)">Delete</a>
+        </div>
+      </div>
+
+
+      <form (ngSubmit)="submit(project)" #form   *ngIf="editState && projectToEdit==project">
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input   type="text" class="form-control" id="title" aria-describedby="emailHelp"
+                 name="title"    placeholder="Enter Title" [(ngModel)]="project.title">
+      </div>
+
+      <div class="form-group">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+               [style.width]="progress+'%'">
+            {{progress}}
+          </div>
+        </div>
+<!--        src="{{ imgsrc }}-->
+
+        <img style="height: 200px "   [src]="project.imageurl" *ngIf="!progress">
+        <img style="height: 200px "   [src]="imgsrc" *ngIf="progress">
+        <input #fileInput (change)="uploadpic($event) " type="file" class="form-control-file"  >
+
+
+
+      </div>
+
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input [(ngModel)]="project.description" type="text" class="form-control" id="description" placeholder="Description" name="description">
+      </div>
+
+      <div class="form-group">
+        <label for="github">Github</label>
+        <input [(ngModel)]="project.github" type="text" class="form-control" id="github" placeholder="Github" name="desciption">
+      </div>
+
+      <div class="form-group">
+        <label for="youtube">Youtube</label>
+        <input [(ngModel)]="project.youtube" type="text" class="form-control" id="youtube" placeholder="Youtube" name="youtube">
+      </div>
+
+      <div class="form-group">
+        <label for="www">Website</label>
+        <input [(ngModel)]="project.www" type="text" class="form-control" id="www" placeholder="url" name="www">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    </form>
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
