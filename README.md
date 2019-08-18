@@ -16,3 +16,10 @@
 <li>When a click delete a confirmation box appears  if i click yes a delete request with the project's id is sent to firebase and the proejct is deleted</li>
 <li>Each project has an embedded edit form it is displayed if i click on the edit button, the form is displayed under the appropriate project  and it allows me to edit the project </li>
 <li>The form is the same as the add form it contains the basic string types that are easy to update and the images which is stored in firebase storage and it returns a link to the images and then deleted the old image from storages using the old link , a progress bar is used to show the upload progress after finishing  the upload</li>
+<h3>Skills Component</h3>
+<li> It is used to display/add/delete/edit the skill , it also uses bootstrap grid system, it is saved as a string but displayed as a list by creating and array and splitting it using the /\s+/ reguular expression</li>
+<li> Skills are saved in firebase as string and displayed as a list when the user clicks on the skill button that contains a title</li>
+<li>Add/edit/delete buttons are displayed when logged in</li>
+<li>When a click delete a confirmation box appears if i click yes a delete request with the project's id is sent to firebase and the skill is deleted when i click update a form is displayed under each skil that allows me to update it</li>
+
+
